@@ -9,7 +9,7 @@
   overflow-x: clip; // 横方向だけ切り、ぼかしは下のセクションへ自然ににじませる
   isolation: isolate;
 
-  // PDF 版の「淡い黄色 × 水色」のぼかしグラデーションを継承
+  // 淡い黄色 × 水色のぼかしグラデーション
   &__blob {
     position: absolute;
     z-index: -1;
