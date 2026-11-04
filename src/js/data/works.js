@@ -176,7 +176,7 @@ export const works = [
     period: '1メーカーあたり2週間〜1ヶ月（段階的に適用範囲を拡大中）',
     role: '企画・設計・開発',
     background:
-      '商品仕様の変更や新車種への適合対応の際、既存の一元管理システムに加えて、\n各モールの管理画面での設定やHTMLの個別修正が発生\n作業工数の肥大化',
+      '商品仕様の変更や新車種への適合対応のたびに、各モールの設定やHTMLを個別に修正\n作業工数の肥大化',
     purpose: '商品情報の更新作業を「1箇所の修正」で完結させること',
     actions: [
       '適合・仕様情報を集約するデータベースの設計（社内で導入済みのGoogle Workspaceを活かし、スプレッドシートで管理）',
@@ -196,16 +196,32 @@ export const works = [
       'ツールに詳しくないメンバーでも使えるよう独自メニューやUIを追加し、自分の作業だけでなくチーム全員の更新作業が軽くなる仕組みとして設計しました。\nこのように、手間のかかる作業を仕組みで減らす経験は、今後の制作でも活かせると考えています。',
     pages: [
       {
-        label: '適合検索サイト',
-        description: 'データベースから自動生成した、製品ごとの適合品番検索ツールです。',
+        label: 'テレビキャンセラー 適合検索',
+        description: 'データベースから自動生成した、Bullconの製品ごとの適合品番検索ツールです。',
         url: 'https://www.rakuten.ne.jp/gold/creer/bullcon-match/',
         image: 'system-match',
         sp: true,
       },
       {
-        label: 'LINEUP案内',
+        label: 'ヒッチメンバー 適合検索',
         description:
-          '商品ラインナップを一覧化した案内ページです。データを更新すると一括で反映されます。',
+          'メーカー・車種・年式から、サン自動車のヒッチメンバーの適合品番を探せる検索ツールです。',
+        url: 'https://www.rakuten.ne.jp/gold/creer/sunauto-match/',
+        image: 'system-match-sunauto',
+        sp: true,
+      },
+      {
+        label: 'ブレーキパッド 適合検索',
+        description:
+          'WinmaXのブレーキパッド・シューとディスクローターの適合品番を、車種から探せる検索ツールです。',
+        url: 'https://www.rakuten.ne.jp/gold/creer/winmax-match/',
+        image: 'system-match-winmax',
+        sp: true,
+      },
+      {
+        label: '洗車用品 LINEUP案内',
+        description:
+          'GYEONの商品ラインナップを一覧化した案内ページです。データを更新すると一括で反映されます。',
         url: 'https://www.rakuten.ne.jp/gold/creer/gyeonlineup2025/',
         image: 'system-lineup',
         sp: true,
