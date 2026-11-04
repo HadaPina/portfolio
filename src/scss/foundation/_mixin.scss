@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+// ブレークポイント（モバイルファースト）
+$breakpoints: (
+  sm: 600px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+@mixin mq($bp: md) {
+  @media (width >= map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

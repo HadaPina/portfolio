@@ -1,0 +1,94 @@
+@use '../foundation/mixin' as *;
+
+.p-skills {
+  &__grid {
+    display: grid;
+    gap: var(--space-lg);
+
+    @include mq(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__group {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    // 説明文＋タグで見せるグループ（AI・Now Learning）
+    &--tags {
+      grid-template-rows: none;
+      align-content: start;
+      background:
+        radial-gradient(circle at 100% 0%, var(--color-sky-100), transparent 60%),
+        radial-gradient(circle at 0% 100%, var(--color-lemon-100), transparent 60%),
+        var(--color-surface);
+    }
+  }
+
+  &__group-title {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    font-family: var(--font-en);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    inline-size: 40px;
+    aspect-ratio: 1;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-sky-800);
+    background-color: var(--color-sky-100);
+    border-radius: 12px;
+  }
+
+  &__icon-svg {
+    inline-size: 22px;
+    block-size: 22px;
+  }
+
+  &__list {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  &__note,
+  &__text {
+    font-size: var(--fs-xs);
+    line-height: 1.8;
+    color: var(--color-text-sub);
+  }
+
+  &__note {
+    padding-block-start: var(--space-md);
+    border-block-start: 1px dashed var(--color-border);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    align-content: start;
+  }
+
+  &__tag-group {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  &__tag-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+}

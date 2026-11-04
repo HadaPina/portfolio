@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "rules": {
+    "selector-class-pattern": [
+      "^([lcpu]-)?[a-z0-9]+(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$|^is-[a-z0-9-]+$|^js-[a-z0-9-]+$",
+      { "message": "FLOCSS + BEM の命名規則（例: p-works__card--active）に従ってください" }
+    ],
+    "no-descending-specificity": null,
+    "scss/at-mixin-pattern": null,
+    "scss/dollar-variable-pattern": null
+  }
+}

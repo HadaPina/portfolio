@@ -1,0 +1,18 @@
+.c-tag {
+  display: inline-block;
+  padding: 0.3em 0.9em;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-sky-800);
+  background-color: var(--color-primary-soft);
+  border-radius: var(--radius-full);
+
+  // メインで使っているものを強調するタグ
+  &--primary {
+    padding-inline: 1.1em;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--color-white);
+    background: linear-gradient(120deg, var(--color-sky-400), var(--color-sky-600));
+  }
+}

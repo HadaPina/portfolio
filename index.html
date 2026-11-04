@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>羽田 日菜香 | Web Coder Portfolio</title>
+    <meta
+      name="description"
+      content="はじめまして、羽田日菜香です。Web制作会社のコーダー職を志望するにあたり、これまでのHTML/CSS/JavaScriptでのコーディング実績や、AI活用・業務効率化の取り組みをこのサイトにまとめました。"
+    />
+    <meta name="theme-color" content="#fffdf3" />
+    <meta name="robots" content="noindex" />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="羽田 日菜香 | Web Coder Portfolio" />
+    <meta
+      property="og:description"
+      content="はじめまして、羽田日菜香です。Web制作会社のコーダー職を志望するにあたり、これまでのHTML/CSS/JavaScriptでのコーディング実績や、AI活用・業務効率化の取り組みをこのサイトにまとめました。"
+    />
+    <meta property="og:url" content="https://hadapina.github.io/portfolio/" />
+    <meta property="og:image" content="https://hadapina.github.io/portfolio/images/ogp.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Fonts：preconnect + display=swap で表示速度を確保 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/scss/style.scss" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+
+  <body>
+    <a class="c-skip-link" href="#main">本文へスキップ</a>
+
+    <!-- スクロール進捗バー（Scroll-driven Animations） -->
+    <div class="c-progress" aria-hidden="true"></div>
+
+    <!-- ===== Header ===== -->
+    <header class="l-header js-header">
+      <div class="l-header__inner">
+        <a class="l-header__logo" href="#top" aria-label="トップへ戻る">
+          <span class="l-header__logo-mark" aria-hidden="true">H</span>
+          <span class="l-header__logo-text">Hinaka's Portfolio</span>
+        </a>
+
+        <button
+          class="l-header__toggle js-nav-toggle"
+          type="button"
+          aria-controls="global-nav"
+          aria-expanded="false"
+          aria-label="メニューを開く"
+        >
+          <span class="l-header__toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="l-header__nav" id="global-nav" aria-label="グローバルナビゲーション">
+          <ul class="l-header__list">
+            <li><a class="l-header__link js-nav-link" href="#skills">Skills</a></li>
+            <li><a class="l-header__link js-nav-link" href="#works">Works</a></li>
+            <li><a class="l-header__link js-nav-link" href="#about">About</a></li>
+          </ul>
+          <a class="c-button c-button--small l-header__cta" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ===== Hero ===== -->
+      <section class="p-hero" id="top" aria-labelledby="hero-title">
+        <div class="p-hero__blob p-hero__blob--yellow" aria-hidden="true"></div>
+        <div class="p-hero__blob p-hero__blob--blue" aria-hidden="true"></div>
+
+        <div class="p-hero__inner">
+          <div class="p-hero__content">
+            <p class="p-hero__eyebrow">Web Coder / Front-end</p>
+            <h1 class="p-hero__title" id="hero-title">
+              <span class="p-hero__title-line">同じゴールを見据えて、</span>
+              <span class="p-hero__title-line">期待の<em>一歩先</em>を形にする。</span>
+            </h1>
+            <p class="p-hero__lead">
+              独学で身につけた HTML / CSS / JavaScript で、<br
+                class="u-pc-only"
+              />カー用品のECモール店舗ページを制作しています。
+              <br />
+              制作では、相手の目的をきちんと理解したうえで、<br class="u-pc-only" /><strong
+                >こちらからも提案する</strong
+              >ことを大切にしています。
+            </p>
+            <p class="p-hero__name">
+              <span class="p-hero__name-ja">羽田 日菜香</span>
+              <span class="p-hero__name-role">Hada Hinaka</span>
+            </p>
+            <div class="p-hero__actions">
+              <a class="c-button" href="#works">
+                制作実績を見る
+                <svg class="c-button__icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </a>
+              <a class="c-button c-button--ghost" href="#skills">スキルを見る</a>
+            </div>
+          </div>
+
+          <!-- コードエディタ風ビジュアル：コーダーらしさを一目で伝える -->
+          <figure
+            class="p-hero__editor c-editor"
+            aria-label="自己紹介をJavaScriptのオブジェクトで表現したコード"
+          >
+            <div class="c-editor__bar" aria-hidden="true">
+              <span class="c-editor__dot"></span>
+              <span class="c-editor__dot"></span>
+              <span class="c-editor__dot"></span>
+              <span class="c-editor__file">profile.js</span>
+            </div>
+            <pre
+              class="c-editor__body"
+            ><code class="js-typing"><span class="tk-key">const</span> <span class="tk-var">me</span> = {
+  <span class="tk-prop">role</span>: <span class="tk-str">'Web Coder'</span>,
+  <span class="tk-prop">skills</span>: [<span class="tk-str">'HTML'</span>, <span class="tk-str">'CSS'</span>, <span class="tk-str">'JS'</span>],
+  <span class="tk-prop">automation</span>: [<span class="tk-str">'GAS'</span>, <span class="tk-str">'VBA'</span>],
+  <span class="tk-prop">withAI</span>: [<span class="tk-str">'Claude Code'</span>, <span class="tk-str">'Gemini'</span>],
+  <span class="tk-prop">strengths</span>: [<span class="tk-str">'柔軟性'</span>, <span class="tk-str">'行動力'</span>, <span class="tk-str">'責任感'</span>],
+  <span class="tk-prop">likes</span>: [<span class="tk-str">'新しいこと'</span>, <span class="tk-str">'話すこと'</span>, <span class="tk-str">'笑うこと'</span>],
+};
+
+<span class="tk-var">me</span>.<span class="tk-fn">shareGoal</span>().<span class="tk-fn">proposeNextStep</span>();</code></pre>
+          </figure>
+        </div>
+
+        <a class="p-hero__scroll" href="#skills" aria-label="次のセクションへ">
+          <span>Scroll</span>
+        </a>
+      </section>
+
+      <!-- ===== Skills ===== -->
+      <section class="l-section p-skills" id="skills" aria-labelledby="skills-title">
+        <div class="l-container">
+          <hgroup class="c-heading js-reveal">
+            <p class="c-heading__en">Skills</p>
+            <h2 class="c-heading__ja" id="skills-title">スキル・ツール</h2>
+          </hgroup>
+
+          <div class="p-skills__grid">
+            <section class="p-skills__group js-reveal" aria-labelledby="skill-coding">
+              <h3 class="p-skills__group-title" id="skill-coding">
+                <span class="p-skills__icon" aria-hidden="true">&lt;/&gt;</span>
+                Coding
+              </h3>
+              <ul class="p-skills__list">
+                <li class="c-skill" style="--level: 1">
+                  <span class="c-skill__name">HTML / CSS</span>
+                  <span class="c-skill__year">5年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.6">
+                  <span class="c-skill__name">JavaScript</span>
+                  <span class="c-skill__year">3年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.4">
+                  <span class="c-skill__name">Google Apps Script</span>
+                  <span class="c-skill__year">2年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.4">
+                  <span class="c-skill__name">VBA</span>
+                  <span class="c-skill__year">2年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.12">
+                  <span class="c-skill__name">WordPress</span>
+                  <span class="c-skill__year">半年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+              </ul>
+              <p class="p-skills__note">
+                レスポンシブ対応 / JavaScriptでの動的UI・データ処理 / GAS・VBAでの業務自動化
+              </p>
+            </section>
+
+            <section class="p-skills__group js-reveal" aria-labelledby="skill-design">
+              <h3 class="p-skills__group-title" id="skill-design">
+                <span class="p-skills__icon" aria-hidden="true">✎</span>
+                Design
+              </h3>
+              <ul class="p-skills__list">
+                <li class="c-skill" style="--level: 1">
+                  <span class="c-skill__name">Canva</span>
+                  <span class="c-skill__year">5年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">Photoshop</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">Illustrator</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.12">
+                  <span class="c-skill__name">Figma</span>
+                  <span class="c-skill__year">半年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+              </ul>
+              <p class="p-skills__note">
+                商品ページ・バナーのデザイン / 掲載先に合わせたサイズ展開
+              </p>
+            </section>
+
+            <section class="p-skills__group js-reveal" aria-labelledby="skill-tools">
+              <h3 class="p-skills__group-title" id="skill-tools">
+                <span class="p-skills__icon" aria-hidden="true">⚙</span>
+                Tools / Marketing
+              </h3>
+              <ul class="p-skills__list">
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">LINE公式アカウント</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.4">
+                  <span class="c-skill__name">Google Analytics</span>
+                  <span class="c-skill__year">2年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.4">
+                  <span class="c-skill__name">Search Console</span>
+                  <span class="c-skill__year">2年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+              </ul>
+              <p class="p-skills__note">配信用クリエイティブ制作 / アクセス解析をもとにした改善</p>
+            </section>
+
+            <section class="p-skills__group js-reveal" aria-labelledby="skill-ec">
+              <h3 class="p-skills__group-title" id="skill-ec">
+                <span class="p-skills__icon" aria-hidden="true">¥</span>
+                EC
+              </h3>
+              <ul class="p-skills__list">
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">RMS（楽天市場）</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">ストアクリエイターPro（Yahoo!ショッピング）</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.8">
+                  <span class="c-skill__name">Amazonセラーセントラル</span>
+                  <span class="c-skill__year">4年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+                <li class="c-skill" style="--level: 0.4">
+                  <span class="c-skill__name">カラーミーショップ</span>
+                  <span class="c-skill__year">2年</span>
+                  <span class="c-skill__bar" aria-hidden="true"></span>
+                </li>
+              </ul>
+              <p class="p-skills__note">
+                店舗情報・トップページ・商品ページ・カテゴリーページの管理 /
+                広告・キャンペーン施策の運用
+              </p>
+            </section>
+
+            <section
+              class="p-skills__group p-skills__group--tags js-reveal"
+              aria-labelledby="skill-ai"
+            >
+              <h3 class="p-skills__group-title" id="skill-ai">
+                <span class="p-skills__icon" aria-hidden="true">
+                  <svg class="p-skills__icon-svg"><use href="#icon-robot"></use></svg>
+                </span>
+                AI
+              </h3>
+              <p class="p-skills__text">
+                コーディング補助やGASのスクリプト作成、コードレビューに活用しています。<br />普段はClaude
+                Codeを中心に使い、社内で導入しているGoogle
+                Workspaceと連携する場面ではGeminiを使い分けています。
+              </p>
+              <div class="p-skills__tag-group">
+                <p class="p-skills__tag-label">主に使用</p>
+                <ul class="p-skills__tags">
+                  <li class="c-tag c-tag--primary">Claude Code</li>
+                  <li class="c-tag c-tag--primary">Gemini</li>
+                </ul>
+              </div>
+              <div class="p-skills__tag-group">
+                <p class="p-skills__tag-label">使用経験あり</p>
+                <ul class="p-skills__tags">
+                  <li class="c-tag">ChatGPT</li>
+                  <li class="c-tag">Copilot</li>
+                  <li class="c-tag">Codex</li>
+                  <li class="c-tag">Genspark</li>
+                </ul>
+              </div>
+            </section>
+
+            <section
+              class="p-skills__group p-skills__group--tags js-reveal"
+              aria-labelledby="skill-learning"
+            >
+              <h3 class="p-skills__group-title" id="skill-learning">
+                <span class="p-skills__icon" aria-hidden="true">↗</span>
+                Now Learning
+              </h3>
+              <p class="p-skills__text">
+                Web制作会社の現場で求められる技術を実践しながら習得中です。
+              </p>
+              <ul class="p-skills__tags">
+                <li class="c-tag">Git / GitHub</li>
+                <li class="c-tag">WordPress（テーマ開発・PHP）</li>
+                <li class="c-tag">Sass（SCSS）</li>
+                <li class="c-tag">jQuery</li>
+                <li class="c-tag">Figma</li>
+                <li class="c-tag">Adobe XD</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Works ===== -->
+      <section class="l-section p-works" id="works" aria-labelledby="works-title">
+        <div class="l-container">
+          <div class="p-works__head">
+            <hgroup class="c-heading js-reveal">
+              <p class="c-heading__en">Works</p>
+              <h2 class="c-heading__ja" id="works-title">制作実績</h2>
+            </hgroup>
+            <p class="p-works__lead js-reveal">
+              実際に公開中のページを中心に、5つのプロジェクトをご紹介します。
+              <br class="u-pc-only" />
+              各実績の「詳しく見る」から、成果・背景・制作したページの一覧をご覧いただけます。
+            </p>
+          </div>
+        </div>
+
+        <!-- 全制作物のスクリーンショットを流すギャラリー（CSSのみの無限スクロール） -->
+        <div class="p-works__marquee js-works-marquee" aria-hidden="true"></div>
+
+        <div class="l-container">
+          <!-- 実績一覧は src/js/data/works.js のデータから描画（データと見た目の分離） -->
+          <ol class="p-works__list js-works-list">
+            <noscript>
+              <li>制作実績の表示には JavaScript を有効にしてください。</li>
+            </noscript>
+          </ol>
+
+          <!-- ===== Banner Gallery ===== -->
+          <!-- 「詳しく見る」を開かなくても一覧で見られるよう、バナーは独立したギャラリーで表示 -->
+          <section class="p-banner" id="banners" aria-labelledby="banner-title">
+            <div class="p-banner__head js-reveal">
+              <div>
+                <p class="p-banner__en">Banner Gallery</p>
+                <h3 class="p-banner__title" id="banner-title">バナー制作</h3>
+                <p class="p-banner__lead">
+                  楽天市場・Yahoo!ショッピング・LINE配信など、各モールでのキャンペーン告知や商品・クーポンの露出強化に向けて制作したバナーです。<br />スピード感を保ちつつ、媒体ごとの仕様に合わせたサイズ展開で、デザイン品質と運用の即時性を両立させています。
+                </p>
+              </div>
+              <ul class="p-banner__points">
+                <li class="p-banner__point">
+                  <span class="p-banner__point-label">制作スピード</span>
+                  <strong class="p-banner__point-value">前日依頼 → 当日実装</strong>
+                </li>
+                <li class="p-banner__point">
+                  <span class="p-banner__point-label">サイズ展開</span>
+                  <strong class="p-banner__point-value">コンテンツページ・横長・LINE用</strong>
+                </li>
+                <li class="p-banner__point">
+                  <span class="p-banner__point-label">目的</span>
+                  <strong class="p-banner__point-value">告知・認知拡大・クーポン利用促進</strong>
+                </li>
+              </ul>
+            </div>
+
+            <!-- バナー一覧は src/js/data/banners.js のデータから描画 -->
+            <ul class="p-banner__grid js-banner-list"></ul>
+          </section>
+        </div>
+      </section>
+
+      <!-- ===== About ===== -->
+      <section class="l-section p-about" id="about" aria-labelledby="about-title">
+        <div class="l-container">
+          <hgroup class="c-heading js-reveal">
+            <p class="c-heading__en">About</p>
+            <h2 class="c-heading__ja" id="about-title">わたしについて</h2>
+          </hgroup>
+
+          <div class="p-about__grid">
+            <div class="p-about__profile js-reveal">
+              <div class="p-about__avatar">
+                <img
+                  src="images/profile.webp"
+                  alt="羽田 日菜香の写真"
+                  width="360"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p class="p-about__name">羽田 日菜香</p>
+              <p class="p-about__role">Web Coder</p>
+              <dl class="p-about__meta">
+                <div>
+                  <dt>現職</dt>
+                  <dd>
+                    カー用品EC事業会社
+                    <br />
+                    Web制作・EC運用
+                  </dd>
+                </div>
+                <div>
+                  <dt>得意</dt>
+                  <dd>
+                    HTML/CSS・JavaScript
+                    <br />
+                    GAS/VBAでの自動化
+                  </dd>
+                </div>
+                <div>
+                  <dt>強み</dt>
+                  <dd>
+                    臨機応変に対応できる柔軟性
+                    <br />
+                    思い立ったらすぐ動く行動力
+                    <br />
+                    責任感で案件を前に進める力
+                  </dd>
+                </div>
+                <div>
+                  <dt>好き</dt>
+                  <dd>
+                    <ul class="p-about__likes">
+                      <li class="c-tag">新しいこと</li>
+                      <li class="c-tag">話すこと</li>
+                      <li class="c-tag">笑うこと</li>
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>働き方</dt>
+                  <dd>
+                    黙々と集中する時間も、
+                    <br />
+                    みんなで盛り上がる時間も、
+                    <br />
+                    メリハリをつけて両立できます
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="p-about__body">
+              <div class="p-about__block js-reveal">
+                <h3 class="p-about__heading">これまでのこと</h3>
+                <p>
+                  EC事業会社で、楽天市場・Yahoo!ショッピングなど各モールの商品ページやLP、特設サイトのデザイン・コーディングを担当してきました。
+                  <br />
+                  他にも、コーダー不在のチームにヘルプとして入ってECサイトを立ち上げたり、JavaScriptで商品の適合検索ツールを開発したり、GAS/VBAで社内の手作業を自動化したりと、日々新しいことに取り組んでいます。
+                </p>
+              </div>
+
+              <div class="p-about__block js-reveal">
+                <h3 class="p-about__heading">大切にしていること</h3>
+                <p>
+                  目的や背景を相手と共有したうえで、要望の一歩先にある提案をするようにしています。制作では「誰に何を伝えたいのか」まで確認し、業務改善では現場の業務フローをヒアリングして、依頼の背景にある課題まで解決できる形にしてきました。
+                </p>
+                <p>
+                  同じゴールを見据えることで、認識のずれや二度手間を防ぎ、より良い成果につなげています。
+                </p>
+              </div>
+
+              <div class="p-about__block p-about__block--why js-reveal">
+                <h3 class="p-about__heading">コーディングを専門にしたい理由</h3>
+                <p>
+                  現職では、商品ページの制作から社内ツールの開発まで、さまざまな形でコードに触れてきました。その中で、作りたいものを細かく分解し、順番を考えながらコードで組み立てていく作業に、面白さを感じるようになりました。
+                </p>
+                <p>
+                  この仕事をもっと深めたい、技術力を高めたいと思い、コーディングを専門にできる環境で働きたいと考えるようになりました。これまでのEC運用で身につけたモールの知識や、数字を見ながら改善してきた経験も活かして、成果につながるサイトづくりに取り組みたいと考えています。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Contact ===== -->
+      <section class="p-contact" id="contact" aria-labelledby="contact-title">
+        <div class="p-contact__inner js-reveal">
+          <p class="c-heading__en">Contact</p>
+          <h2 class="p-contact__title" id="contact-title">
+            最後までご覧いただき、
+            <br class="u-sp-only" />
+            ありがとうございました。
+          </h2>
+          <p class="p-contact__text">
+            ぜひ一度、お話しする機会を<br class="u-sp-only" />いただけましたら幸いです。
+          </p>
+          <div class="p-contact__actions">
+            <a class="c-button" href="mailto:mah.wiping.869@gmail.com">
+              <svg class="c-button__icon c-button__icon--left" aria-hidden="true">
+                <use href="#icon-mail"></use>
+              </svg>
+              メールで連絡する
+            </a>
+            <a
+              class="c-button c-button--ghost"
+              href="https://github.com/HadaPina/portfolio"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg class="c-button__icon c-button__icon--left" aria-hidden="true">
+                <use href="#icon-github"></use>
+              </svg>
+              ソースコードを見る
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="l-footer">
+      <p class="l-footer__copy"><small>&copy; 2026 Hinaka Hada Portfolio</small></p>
+    </footer>
+
+    <!-- ===== Works Modal ===== -->
+    <dialog class="c-modal js-modal" aria-labelledby="modal-title">
+      <div class="c-modal__bar">
+        <p class="c-modal__bar-title js-modal-bar-title" aria-hidden="true"></p>
+        <button class="c-modal__close js-modal-close" type="button" aria-label="閉じる">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <article class="c-modal__content js-modal-content" tabindex="-1"></article>
+    </dialog>
+
+    <!-- ===== Banner Lightbox ===== -->
+    <dialog class="c-lightbox js-lightbox" aria-label="バナーの拡大表示">
+      <button class="c-lightbox__close js-lightbox-close" type="button" aria-label="閉じる">
+        <span aria-hidden="true"></span>
+      </button>
+      <figure class="c-lightbox__figure">
+        <img class="c-lightbox__img js-lightbox-img" src="data:," alt="" />
+        <figcaption class="c-lightbox__caption js-lightbox-caption"></figcaption>
+      </figure>
+    </dialog>
+
+    <!-- ===== SVG Sprite ===== -->
+    <svg xmlns="http://www.w3.org/2000/svg" hidden>
+      <symbol id="icon-robot" viewBox="0 0 24 24">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="4" y="7" width="16" height="12" rx="3" />
+          <path d="M12 7V4M10.5 3.5h3M2 12v3M22 12v3M9 15.5h6" />
+        </g>
+        <circle cx="9" cy="11.5" r="1.4" fill="currentColor" />
+        <circle cx="15" cy="11.5" r="1.4" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path
+          d="M5 12h14M13 6l6 6-6 6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path
+          d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect
+          x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <path
+          d="m3 7 9 6 9-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.46-1.1-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+        />
+      </symbol>
+    </svg>
+  </body>
+</html>

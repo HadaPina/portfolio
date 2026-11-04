@@ -1,0 +1,129 @@
+@use '../foundation/mixin' as *;
+
+.p-about {
+  &__grid {
+    display: grid;
+    gap: var(--space-2xl);
+
+    @include mq(lg) {
+      grid-template-columns: 320px 1fr;
+      align-items: start;
+    }
+  }
+
+  &__profile {
+    padding: var(--space-xl);
+    text-align: center;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    @include mq(lg) {
+      position: sticky;
+      top: calc(var(--header-h) + var(--space-lg));
+    }
+  }
+
+  &__avatar {
+    display: grid;
+    place-items: center;
+    inline-size: 120px;
+    aspect-ratio: 1;
+    margin-inline: auto;
+    font-family: var(--font-en);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--color-white);
+    background:
+      radial-gradient(circle at 30% 70%, var(--color-lemon-400), transparent 60%),
+      linear-gradient(135deg, var(--color-sky-200), var(--color-sky-400));
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px var(--color-sky-50);
+
+    img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+  }
+
+  &__name {
+    margin-block-start: var(--space-md);
+    font-family: var(--font-round);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  &__role {
+    font-family: var(--font-en);
+    font-size: var(--fs-xs);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+  }
+
+  &__meta {
+    display: grid;
+    gap: var(--space-sm);
+    margin-block-start: var(--space-lg);
+    text-align: start;
+
+    > div {
+      display: grid;
+      grid-template-columns: 3.5em 1fr;
+      gap: var(--space-sm);
+      padding-block-start: var(--space-sm);
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+      border-block-start: 1px dashed var(--color-border);
+    }
+
+    dt {
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+  }
+
+  &__likes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    padding-block-start: 0.15em;
+  }
+
+  &__body {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  &__block {
+    display: grid;
+    gap: var(--space-md);
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    background-color: rgb(255 255 255 / 60%);
+    border: 1px solid var(--color-sky-100);
+    border-radius: var(--radius-lg);
+
+    &--why {
+      background: linear-gradient(135deg, var(--color-lemon-100), var(--color-sky-50));
+      border: none;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    padding-inline-start: 1em;
+    font-family: var(--font-round);
+    font-size: var(--fs-lg);
+
+    &::before {
+      position: absolute;
+      inset: 0.3em auto 0.3em 0;
+      inline-size: 4px;
+      content: '';
+      background: linear-gradient(var(--color-lemon-400), var(--color-sky-400));
+      border-radius: 2px;
+    }
+  }
+}

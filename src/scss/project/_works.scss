@@ -1,0 +1,294 @@
+@use '../foundation/mixin' as *;
+
+.p-works {
+  overflow-x: clip;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--color-sky-50) 12%,
+    var(--color-sky-50) 88%,
+    transparent
+  );
+
+  &__head {
+    display: grid;
+    gap: var(--space-md);
+
+    @include mq(lg) {
+      grid-template-columns: auto 1fr;
+      gap: var(--space-2xl);
+      align-items: end;
+      margin-block-end: var(--space-2xl);
+
+      .c-heading {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  &__lead {
+    font-size: var(--fs-sm);
+    color: var(--color-text-sub);
+  }
+
+  // ---------------------------------------------------------
+  // Marquee（全制作物を横に流すギャラリー）
+  // ---------------------------------------------------------
+  &__marquee {
+    padding-block: var(--space-xl);
+    margin-block: var(--space-lg) var(--space-xl);
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    rotate: -2deg;
+  }
+
+  &__marquee-track {
+    display: flex;
+    gap: var(--space-md);
+    inline-size: max-content;
+    padding-inline-end: var(--space-md); // gap 分を足して -50% 移動時の継ぎ目をなくす
+    animation: marquee 70s linear infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  &__marquee:hover &__marquee-track {
+    animation-play-state: paused;
+  }
+
+  &__marquee-item {
+    inline-size: clamp(200px, 22vw, 320px);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+
+    img {
+      inline-size: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    &:nth-child(even) {
+      translate: 0 18px;
+    }
+  }
+
+  // ---------------------------------------------------------
+  // Showcase list
+  // ---------------------------------------------------------
+  &__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  &__card {
+    display: grid;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+      translate var(--duration) var(--ease-out),
+      box-shadow var(--duration) var(--ease-out);
+
+    @include mq(lg) {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    }
+
+    @include hover {
+      box-shadow: var(--shadow-lg);
+      translate: 0 -4px;
+
+      .p-works__shot--main {
+        translate: 0 -6px;
+      }
+
+      .p-works__shot--sub {
+        translate: 6px 4px;
+      }
+
+      .p-works__shot--phone {
+        translate: -4px -8px;
+      }
+    }
+  }
+
+  // 偶数番目のカードは画像を右側にして、左右交互に並べる
+  &__item:nth-child(even) &__card {
+    @include mq(lg) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+
+      .p-works__visual {
+        order: 2;
+      }
+    }
+  }
+
+  // ---- Visual（スクリーンショットのコラージュ） ----
+  // 背景は本文の高さに合わせて伸ばし、コラージュは比率固定のまま上下中央に置く
+  &__visual {
+    display: grid;
+    align-items: center;
+    container-type: inline-size;
+    background:
+      radial-gradient(circle at 15% 85%, var(--color-lemon-200), transparent 50%),
+      radial-gradient(circle at 90% 10%, var(--color-sky-200), transparent 55%), var(--color-sky-50);
+  }
+
+  &__collage {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 11;
+  }
+
+  &__shot {
+    position: absolute;
+    transition: translate 0.6s var(--ease-out);
+
+    &--main {
+      top: 9%;
+      left: 6%;
+      inline-size: 70%;
+    }
+
+    &--sub {
+      right: 5%;
+      bottom: 9%;
+      z-index: 1;
+      inline-size: 52%;
+    }
+
+    &--phone {
+      bottom: 6%;
+      left: 9%;
+      z-index: 2;
+      inline-size: 17%;
+    }
+  }
+
+  // ページが1つだけの実績は中央に大きく
+  &__visual--single &__shot--main {
+    top: 10%;
+    left: 8%;
+    inline-size: 76%;
+  }
+
+  &__visual--single &__shot--phone {
+    right: 6%;
+    bottom: 8%;
+    left: auto;
+    inline-size: 20%;
+  }
+
+  // ---- Body ----
+  &__body {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: center;
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-xs);
+    align-items: center;
+  }
+
+  &__no {
+    margin-inline-end: var(--space-2xs);
+    font-family: var(--font-en);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.12em;
+  }
+
+  &__title {
+    font-family: var(--font-round);
+    font-size: var(--fs-xl);
+    line-height: 1.5;
+  }
+
+  // 何をして、どうなったかを伝える一文（蛍光ペン風のマーカーで強調）
+  &__headline {
+    margin-block: var(--space-2xs) var(--space-xs);
+    font-family: var(--font-round);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.8;
+    word-break: auto-phrase;
+    text-decoration: underline;
+    text-decoration-thickness: 0.45em;
+    text-decoration-color: var(--color-lemon-200);
+    text-decoration-skip-ink: none;
+    text-underline-offset: -0.2em;
+  }
+
+  &__spec {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-lg);
+    font-size: var(--fs-xs);
+    color: var(--color-text-sub);
+
+    b {
+      margin-inline-end: var(--space-xs);
+      color: var(--color-primary);
+    }
+  }
+
+  // 押せない情報なのでカプセル型にせず「#」付きの文字で表示（ボタン型のリンクと区別する）
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2xs) var(--space-md);
+  }
+
+  &__tag {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--color-primary);
+
+    &::before {
+      margin-inline-end: 1px;
+      color: var(--color-sky-400);
+      content: '#';
+    }
+  }
+
+  // 左に各ページへのリンク、右に「詳しく見る」
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-block-start: var(--space-md);
+    margin-block-start: var(--space-xs);
+    border-block-start: 1px dashed var(--color-border);
+  }
+
+  &__links {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  &__more {
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+}
+
+@keyframes marquee {
+  to {
+    translate: -50% 0;
+  }
+}

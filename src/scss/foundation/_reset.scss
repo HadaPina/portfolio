@@ -1,0 +1,55 @@
+// モダンリセット（必要最小限）
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  text-size-adjust: none;
+}
+
+img,
+svg,
+video,
+picture {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+dialog {
+  max-inline-size: none;
+  max-block-size: none;
+  padding: 0;
+  border: none;
+}

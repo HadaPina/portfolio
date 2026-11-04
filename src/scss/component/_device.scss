@@ -1,0 +1,80 @@
+// =========================================================
+// デバイスフレーム：スクリーンショットを「実際の画面」らしく見せる
+// =========================================================
+
+// PC：ブラウザ枠
+// 枠のサイズに応じてバーや文字を拡縮させるため、自身をコンテナにする（cqi 単位で参照）
+.c-browser {
+  display: block;
+  container-type: inline-size;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 1px rgb(29 95 133 / 8%),
+    var(--shadow-md);
+
+  &__bar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    block-size: clamp(16px, 4cqi, 26px);
+    padding-inline: 10px;
+    background-color: var(--color-sky-50);
+  }
+
+  // 3つの丸を1要素＋box-shadowで描画（DOMを増やさない）
+  &__dots {
+    flex-shrink: 0;
+    inline-size: 6px;
+    aspect-ratio: 1;
+    margin-inline-end: 14px;
+    background-color: #ff8a80;
+    border-radius: 50%;
+    box-shadow:
+      9px 0 0 var(--color-lemon-400),
+      18px 0 0 #8fdba8;
+  }
+
+  &__url {
+    flex: 1;
+    max-inline-size: 60%;
+    padding: 0 8px;
+    margin-inline: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: var(--font-en);
+    font-size: clamp(7px, 1.6cqi, 11px);
+    line-height: 1.6;
+    color: var(--color-text-mute);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-full);
+  }
+
+  &__img {
+    inline-size: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+// SP：スマホ枠
+.c-phone {
+  display: block;
+  overflow: hidden;
+  background-color: var(--color-ink-900);
+  border: clamp(3px, 1.2cqi, 6px) solid var(--color-ink-900);
+  border-radius: clamp(10px, 3.6cqi, 22px);
+  box-shadow: var(--shadow-lg);
+
+  &__img {
+    inline-size: 100%;
+    aspect-ratio: 9 / 18;
+    object-fit: cover;
+    object-position: top;
+    border-radius: clamp(7px, 2.6cqi, 16px);
+  }
+}

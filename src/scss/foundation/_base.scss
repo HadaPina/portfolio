@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  overflow-x: clip;
+  font-family: var(--font-base);
+  font-size: var(--fs-md);
+  font-feature-settings: 'palt';
+  line-height: 1.85;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+
+  // ハンバーガーメニュー展開中はスクロールを止める（:has() で JS 不要）
+  &:has(.l-header.is-open) {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.4;
+  word-break: auto-phrase; // 日本語を文節単位で改行（BudouX 相当をブラウザ標準で）
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sky-400);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  color: var(--color-ink-900);
+  background-color: var(--color-lemon-200);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

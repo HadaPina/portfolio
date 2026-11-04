@@ -1,0 +1,75 @@
+// デザイントークンは CSS カスタムプロパティで一元管理
+// （Figma の Variables と命名を揃え、デザイナーとの共通言語にする想定）
+:root {
+  // Color - Primitive
+  --color-sky-50: #f1f9fe;
+  --color-sky-100: #dff1fc;
+  --color-sky-200: #bfe3f7;
+  --color-sky-400: #6ec3ec;
+  --color-sky-600: #2b8fc4;
+  --color-sky-800: #1d5f85;
+  --color-lemon-50: #fffdf3;
+  --color-lemon-100: #fff8d9;
+  --color-lemon-200: #fff0b0;
+  --color-lemon-400: #ffe170;
+  --color-lemon-600: #e4b62c;
+  --color-ink-900: #2a3743;
+  --color-ink-700: #4a5967;
+  --color-ink-500: #77848f;
+  --color-ink-200: #dfe5ea;
+  --color-white: #fff;
+
+  // Color - Semantic
+  --color-bg: var(--color-lemon-50);
+  --color-surface: var(--color-white);
+  --color-text: var(--color-ink-900);
+  --color-text-sub: var(--color-ink-700);
+  --color-text-mute: var(--color-ink-500);
+  --color-primary: var(--color-sky-600);
+  --color-primary-soft: var(--color-sky-100);
+  --color-accent: var(--color-lemon-400);
+  --color-accent-soft: var(--color-lemon-100);
+  --color-border: var(--color-ink-200);
+
+  // Typography
+  --font-base: 'Noto Sans JP', system-ui, sans-serif;
+  --font-round: 'Zen Maru Gothic', var(--font-base);
+  --font-en: 'Outfit', var(--font-base);
+
+  // 数字・英字は Outfit、Outfit にない漢字・かなは角丸フォントで表示（成果の数字など）
+  --font-en-round: 'Outfit', var(--font-round);
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  // Fluid type scale（clamp で 375px〜1280px の間を滑らかに可変）
+  --fs-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  --fs-sm: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --fs-md: clamp(0.9375rem, 0.9rem + 0.18vw, 1rem);
+  --fs-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --fs-2xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  --fs-3xl: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
+  --fs-display: clamp(2.5rem, 1.5rem + 4.6vw, 5rem);
+
+  // Spacing
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  --space-section: clamp(5rem, 3.5rem + 6vw, 9rem);
+
+  // Others
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 8px rgb(43 143 196 / 8%);
+  --shadow-md: 0 12px 32px -8px rgb(43 143 196 / 18%);
+  --shadow-lg: 0 24px 60px -16px rgb(29 95 133 / 25%);
+  --header-h: 72px;
+  --content-w: 1120px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration: 0.4s;
+}

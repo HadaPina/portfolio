@@ -1,0 +1,32 @@
+.c-heading {
+  margin-block-end: var(--space-2xl);
+
+  &__en {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    font-family: var(--font-en);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+
+    &::before {
+      inline-size: 10px;
+      aspect-ratio: 1;
+      margin-inline-end: 10px;
+      content: '';
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      box-shadow: 6px 0 0 var(--color-sky-200);
+    }
+  }
+
+  &__ja {
+    margin-block-start: var(--space-2xs);
+    font-family: var(--font-round);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+  }
+}

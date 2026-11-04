@@ -1,0 +1,15 @@
+@use '../foundation/mixin' as *;
+
+.l-container {
+  inline-size: min(100% - 32px, var(--content-w));
+  margin-inline: auto;
+
+  @include mq(md) {
+    inline-size: min(100% - 80px, var(--content-w));
+  }
+}
+
+.l-section {
+  position: relative;
+  padding-block: var(--space-section);
+}

@@ -1,0 +1,33 @@
+.p-contact {
+  padding-block: var(--space-section);
+  padding-inline: 16px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 10% 90%, var(--color-lemon-200), transparent 40%),
+    radial-gradient(circle at 90% 10%, var(--color-sky-200), transparent 45%), var(--color-sky-50);
+
+  &__inner {
+    display: grid;
+    gap: var(--space-md);
+    justify-items: center;
+    max-inline-size: 720px;
+    margin-inline: auto;
+  }
+
+  &__title {
+    font-family: var(--font-round);
+    font-size: var(--fs-2xl);
+  }
+
+  &__text {
+    color: var(--color-text-sub);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-block-start: var(--space-md);
+  }
+}

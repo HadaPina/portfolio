@@ -1,0 +1,28 @@
+@use '../foundation/mixin' as *;
+
+[hidden] {
+  display: none !important;
+}
+
+.u-visually-hidden {
+  position: absolute !important;
+  inline-size: 1px !important;
+  block-size: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  clip-path: inset(50%) !important;
+}
+
+.u-pc-only {
+  display: none;
+
+  @include mq(md) {
+    display: revert;
+  }
+}
+
+.u-sp-only {
+  @include mq(md) {
+    display: none;
+  }
+}

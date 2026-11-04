@@ -1,0 +1,212 @@
+@use '../foundation/mixin' as *;
+
+.l-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  block-size: var(--header-h);
+
+  // スクロール時のすりガラス背景は疑似要素に持たせる
+  // （ヘッダー本体に backdrop-filter を付けると、中の position: fixed のメニューが
+  //   画面全体ではなくヘッダーの高さに閉じ込められてしまうため）
+  &::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1; // ヘッダー内の文字やリンクより必ず後ろに描画
+    content: '';
+    background-color: rgb(255 253 243 / 80%);
+    box-shadow: 0 1px 0 rgb(43 143 196 / 10%);
+    opacity: 0;
+    backdrop-filter: blur(12px);
+    transition: opacity var(--duration);
+  }
+
+  &.is-scrolled::before {
+    opacity: 1;
+  }
+
+  &__inner {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: space-between;
+    block-size: 100%;
+    padding-inline: 16px;
+
+    @include mq(md) {
+      padding-inline: 40px;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    font-family: var(--font-en);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  &__logo-mark {
+    display: grid;
+    place-items: center;
+    inline-size: 36px;
+    aspect-ratio: 1;
+    font-weight: 600;
+    color: var(--color-white);
+    background: linear-gradient(135deg, var(--color-sky-400), var(--color-sky-600));
+    border-radius: 12px 12px 12px 4px;
+  }
+
+  &__logo-text {
+    font-size: var(--fs-sm);
+  }
+
+  // ---- Hamburger ----
+  &__toggle {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    inline-size: 48px;
+    aspect-ratio: 1;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+
+    @include mq(lg) {
+      display: none;
+    }
+  }
+
+  &__toggle-bar,
+  &__toggle-bar::before,
+  &__toggle-bar::after {
+    display: block;
+    inline-size: 20px;
+    block-size: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition:
+      transform var(--duration) var(--ease-out),
+      background-color var(--duration);
+  }
+
+  &__toggle-bar {
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      content: '';
+    }
+
+    &::before {
+      transform: translateY(-6px);
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+  }
+
+  &.is-open &__toggle-bar {
+    background-color: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  // ---- Navigation ----
+  &__nav {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 15% 85%, var(--color-lemon-200), transparent 45%),
+      radial-gradient(circle at 85% 15%, var(--color-sky-100), transparent 50%), var(--color-bg);
+    opacity: 0;
+    transition:
+      opacity var(--duration),
+      visibility var(--duration);
+
+    @include mq(lg) {
+      position: static;
+      visibility: visible;
+      flex-direction: row;
+      gap: var(--space-lg);
+      background: none;
+      opacity: 1;
+    }
+  }
+
+  &.is-open &__nav {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+
+    @include mq(lg) {
+      flex-direction: row;
+      gap: clamp(0.75rem, 1.4vw, 1.5rem);
+    }
+  }
+
+  &__link {
+    position: relative;
+    font-family: var(--font-en);
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+
+    @include mq(lg) {
+      font-size: var(--fs-sm);
+    }
+
+    &::after {
+      position: absolute;
+      inset: auto 0 -4px;
+      block-size: 2px;
+      content: '';
+      background-color: var(--color-sky-400);
+      border-radius: 2px;
+      transform-origin: right;
+      scale: 0 1;
+      transition: scale var(--duration) var(--ease-out);
+    }
+
+    @include hover {
+      &::after {
+        transform-origin: left;
+        scale: 1 1;
+      }
+    }
+
+    &[aria-current='true'] {
+      color: var(--color-primary);
+
+      &::after {
+        scale: 1 1;
+      }
+    }
+  }
+}

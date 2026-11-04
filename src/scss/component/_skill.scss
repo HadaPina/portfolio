@@ -1,0 +1,43 @@
+// スキルバー：--level（0〜1）をインラインで渡し、幅を CSS 側で計算
+.c-skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  align-items: baseline;
+  font-size: var(--fs-sm);
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__year {
+    font-family: var(--font-en);
+    font-size: var(--fs-xs);
+    color: var(--color-text-mute);
+  }
+
+  &__bar {
+    position: relative;
+    grid-column: 1 / -1;
+    block-size: 6px;
+    overflow: hidden;
+    background-color: var(--color-sky-50);
+    border-radius: var(--radius-full);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      background: linear-gradient(90deg, var(--color-lemon-400), var(--color-sky-400));
+      border-radius: inherit;
+      transform-origin: left;
+      scale: var(--level, 0) 1;
+      transition: scale 1.2s var(--ease-out) 0.2s;
+    }
+  }
+}
+
+// スクロールで表示されるまではバーを 0 に
+:root.is-js .js-reveal:not(.is-visible) .c-skill__bar::after {
+  scale: 0 1;
+}

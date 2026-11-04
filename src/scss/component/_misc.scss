@@ -1,0 +1,59 @@
+// スキップリンク
+.c-skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: var(--space-xs) var(--space-md);
+  color: var(--color-white);
+  background-color: var(--color-sky-800);
+  border-radius: var(--radius-sm);
+  translate: 0 -200%;
+
+  &:focus {
+    translate: 0 0;
+  }
+}
+
+// スクロール進捗バー（Scroll-driven Animations / 非対応ブラウザでは非表示）
+.c-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .c-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 101;
+    display: block;
+    block-size: 3px;
+    background: linear-gradient(90deg, var(--color-lemon-400), var(--color-sky-400));
+    transform-origin: left;
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progress {
+    from {
+      scale: 0 1;
+    }
+
+    to {
+      scale: 1 1;
+    }
+  }
+}
+
+// スクロール表示アニメーション（JS 有効時のみ初期状態を非表示にする）
+:root.is-js .js-reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 0.9s var(--ease-out),
+    translate 0.9s var(--ease-out);
+
+  &.is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

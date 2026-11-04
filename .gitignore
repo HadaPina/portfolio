@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# 画像の元データ（公開用の WebP は public/ に入っているため管理対象外）
+assets-src/
+
+# 文章の下書き・確認用メモ
+docs/文章リスト.md

@@ -1,0 +1,98 @@
+// コードエディタ風の UI（Hero・技術紹介で共通利用）
+.c-editor {
+  // Grid アイテム内で <pre> の幅に引っ張られて横スクロールが出ないように
+  min-inline-size: 0;
+  overflow: hidden;
+  color: #e8eef3;
+  background-color: #23313d;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+
+  &__bar {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: rgb(255 255 255 / 6%);
+  }
+
+  &__dot {
+    inline-size: 10px;
+    aspect-ratio: 1;
+    background-color: #ff8a80;
+    border-radius: 50%;
+
+    &:nth-child(2) {
+      background-color: var(--color-lemon-400);
+    }
+
+    &:nth-child(3) {
+      background-color: #8fdba8;
+    }
+  }
+
+  &__file {
+    margin-inline-start: var(--space-xs);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    opacity: 0.6;
+  }
+
+  &__body {
+    padding: var(--space-lg);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: clamp(0.6875rem, 3.2vw, 0.875rem);
+    line-height: 1.9;
+    letter-spacing: 0;
+    tab-size: 2;
+  }
+
+  &--light {
+    color: var(--color-ink-900);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-sky-100);
+    box-shadow: var(--shadow-sm);
+
+    .c-editor__bar {
+      background-color: var(--color-sky-50);
+    }
+  }
+
+  // シンタックスハイライト用トークン
+  .tk-key {
+    color: #ff9ecb;
+  }
+
+  .tk-var {
+    color: #8fd3ff;
+  }
+
+  .tk-prop {
+    color: #a6e3c8;
+  }
+
+  .tk-str {
+    color: #ffe38a;
+  }
+
+  .tk-fn {
+    color: #c9b6ff;
+  }
+
+  .tk-comment {
+    color: #8899a6;
+  }
+
+  &--light .tk-key {
+    color: #c2417f;
+  }
+
+  &--light .tk-prop {
+    color: #1f7f5c;
+  }
+
+  &--light .tk-str {
+    color: #9a6b00;
+  }
+}

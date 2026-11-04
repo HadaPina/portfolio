@@ -1,0 +1,44 @@
+@use 'sass:meta';
+
+// =========================================================
+// Cascade Layers で FLOCSS のレイヤー順を CSS レベルでも保証する
+// （後から書いたセレクタの詳細度に関係なく、utility が最優先される）
+// =========================================================
+@layer foundation, layout, component, project, utility;
+
+@layer foundation {
+  @include meta.load-css('foundation/variables');
+  @include meta.load-css('foundation/reset');
+  @include meta.load-css('foundation/base');
+}
+
+@layer layout {
+  @include meta.load-css('layout/container');
+  @include meta.load-css('layout/header');
+  @include meta.load-css('layout/footer');
+}
+
+@layer component {
+  @include meta.load-css('component/button');
+  @include meta.load-css('component/heading');
+  @include meta.load-css('component/tag');
+  @include meta.load-css('component/editor');
+  @include meta.load-css('component/device');
+  @include meta.load-css('component/skill');
+  @include meta.load-css('component/modal');
+  @include meta.load-css('component/lightbox');
+  @include meta.load-css('component/misc');
+}
+
+@layer project {
+  @include meta.load-css('project/hero');
+  @include meta.load-css('project/about');
+  @include meta.load-css('project/skills');
+  @include meta.load-css('project/works');
+  @include meta.load-css('project/banner');
+  @include meta.load-css('project/contact');
+}
+
+@layer utility {
+  @include meta.load-css('utility/utility');
+}
