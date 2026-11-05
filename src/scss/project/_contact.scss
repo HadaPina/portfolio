@@ -14,16 +14,18 @@
     margin-inline: auto;
   }
 
+  // 行末の句読点の右側の空きで左に寄って見えるため、見た目の中央に合わせて右へ補正
   &__title {
     font-family: var(--font-round);
     font-size: var(--fs-2xl);
+    translate: 0.25em 0;
   }
 
-  &__text {
-    color: var(--color-text-sub);
   // justify-items: center だと文字幅ぴったりに縮み、iPhone で「お話／しする」のように割れるため幅を確保する
-  }
+  &__text {
     inline-size: 100%;
+    color: var(--color-text-sub);
+  }
 
   &__actions {
     display: flex;
