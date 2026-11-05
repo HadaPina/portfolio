@@ -117,7 +117,9 @@
   &__content {
     position: relative;
     display: grid;
-    flex: 1;
+
+    // flex: 1（basis 0%）だと Safari で本文の高さが 0 扱いになりモーダルが潰れるため、basis は auto にする
+    flex: 1 1 auto;
     gap: var(--space-2xl);
     min-block-size: 0;
     padding: var(--space-lg) var(--space-md);
