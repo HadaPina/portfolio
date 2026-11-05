@@ -81,10 +81,10 @@ const valueTemplate = (result) =>
   `${escapeHtml(result.value)}${result.unit ? `<span>${escapeHtml(result.unit)}</span>` : ''}`;
 
 // 一覧カードから各ページへ直接飛べるリンクボタン
-const pageLinkTemplate = (page) => `
+const pageLinkTemplate = (page, isGrid) => `
   <li>
     <a class="c-button c-button--small c-button--ghost" href="${escapeHtml(page.url)}" target="_blank" rel="noopener">
-      ${escapeHtml(page.label)}
+      ${isGrid ? escapeHtml(page.label).replace(' ', '<br>') : escapeHtml(page.label)}
       <svg class="c-button__icon" aria-hidden="true"><use href="#icon-external"></use></svg>
       <span class="u-visually-hidden">（新しいタブで開きます）</span>
     </a>
@@ -112,8 +112,8 @@ const cardTemplate = (work) => `
         <ul class="p-works__tags" aria-label="キーワード">${work.tags.map((t) => `<li class="p-works__tag">${escapeHtml(t)}</li>`).join('')}</ul>
 
         <div class="p-works__footer">
-          <ul class="p-works__links" aria-label="${escapeHtml(plainTitle(work.shortTitle))}の公開ページ">
-            ${work.pages.map(pageLinkTemplate).join('')}
+          <ul class="p-works__links${work.pages.length >= 4 ? ' p-works__links--grid' : ''}" aria-label="${escapeHtml(plainTitle(work.shortTitle))}の公開ページ">
+            ${work.pages.map((page) => pageLinkTemplate(page, work.pages.length >= 4)).join('')}
           </ul>
           <button class="c-button c-button--small p-works__more" type="button" data-id="${escapeHtml(work.id)}" aria-haspopup="dialog">
             詳しく見る<span class="u-visually-hidden">：${escapeHtml(plainTitle(work.shortTitle))}</span>
