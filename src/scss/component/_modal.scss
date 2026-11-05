@@ -177,9 +177,13 @@
     letter-spacing: 0.15em;
   }
 
+  // 改行位置はデータ側の <wbr> で指定（.p-works__title と同じ）
   &__title {
     font-family: var(--font-round);
     font-size: var(--fs-2xl);
+    word-break: keep-all;
+    text-wrap: wrap;
+    overflow-wrap: anywhere;
   }
 
   &__tags {
@@ -528,3 +532,5 @@
     color: var(--color-text-sub);
   }
 }
+    word-break: keep-all;
+    overflow-wrap: anywhere;

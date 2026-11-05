@@ -72,6 +72,10 @@ const visualTemplate = (work) => {
 // データ内の改行（\n）を <br> にして表示する
 const withBreaks = (text) => escapeHtml(text).replaceAll('\n', '<br>');
 
+// タイトル内の | を改行してよい位置（<wbr>）にする
+const withPhrases = (text) => escapeHtml(text).replaceAll('|', '<wbr>');
+const plainTitle = (text) => text.replaceAll('|', '');
+
 // 成果は「何が（label）→ どうなった（value + unit）」の順で読ませる
 const valueTemplate = (result) =>
   `${escapeHtml(result.value)}${result.unit ? `<span>${escapeHtml(result.unit)}</span>` : ''}`;
@@ -96,7 +100,7 @@ const cardTemplate = (work) => `
         <p class="p-works__meta">
           <span class="p-works__no">Project ${escapeHtml(work.no)}</span>
         </p>
-        <h3 class="p-works__title">${escapeHtml(work.title)}</h3>
+        <h3 class="p-works__title">${withPhrases(work.title)}</h3>
 
         <p class="p-works__headline">${escapeHtml(work.summary)}</p>
 
@@ -108,11 +112,11 @@ const cardTemplate = (work) => `
         <ul class="p-works__tags" aria-label="キーワード">${work.tags.map((t) => `<li class="p-works__tag">${escapeHtml(t)}</li>`).join('')}</ul>
 
         <div class="p-works__footer">
-          <ul class="p-works__links" aria-label="${escapeHtml(work.shortTitle)}の公開ページ">
+          <ul class="p-works__links" aria-label="${escapeHtml(plainTitle(work.shortTitle))}の公開ページ">
             ${work.pages.map(pageLinkTemplate).join('')}
           </ul>
           <button class="c-button c-button--small p-works__more" type="button" data-id="${escapeHtml(work.id)}" aria-haspopup="dialog">
-            詳しく見る<span class="u-visually-hidden">：${escapeHtml(work.shortTitle)}</span>
+            詳しく見る<span class="u-visually-hidden">：${escapeHtml(plainTitle(work.shortTitle))}</span>
             <svg class="c-button__icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
           </button>
         </div>
@@ -151,11 +155,11 @@ const pagerTemplate = (work) => {
     <nav class="c-modal__pager" aria-label="ほかの実績">
       <button class="c-modal__pager-btn c-modal__pager-btn--prev" type="button" data-goto="${escapeHtml(prev.id)}">
         <span class="c-modal__pager-dir">Prev</span>
-        <span class="c-modal__pager-title">${escapeHtml(prev.shortTitle)}</span>
+        <span class="c-modal__pager-title">${withPhrases(prev.shortTitle)}</span>
       </button>
       <button class="c-modal__pager-btn c-modal__pager-btn--next" type="button" data-goto="${escapeHtml(next.id)}">
         <span class="c-modal__pager-dir">Next</span>
-        <span class="c-modal__pager-title">${escapeHtml(next.shortTitle)}</span>
+        <span class="c-modal__pager-title">${withPhrases(next.shortTitle)}</span>
       </button>
     </nav>`;
 };
@@ -165,7 +169,7 @@ const modalTemplate = (work) => `
     <p class="c-modal__meta">
       <span class="c-modal__no">Project ${escapeHtml(work.no)}</span>
     </p>
-    <h2 class="c-modal__title" id="modal-title">${escapeHtml(work.title)}</h2>
+    <h2 class="c-modal__title" id="modal-title">${withPhrases(work.title)}</h2>
     <ul class="c-modal__tags">${work.tags.map((t) => `<li class="c-tag">${escapeHtml(t)}</li>`).join('')}</ul>
   </header>
 
@@ -225,7 +229,7 @@ function initModal(list) {
     const work = works.find((w) => w.id === id);
     if (!work) return;
     content.innerHTML = modalTemplate(work);
-    if (barTitle) barTitle.textContent = work.shortTitle;
+    if (barTitle) barTitle.textContent = plainTitle(work.shortTitle);
     content.scrollTop = 0;
   };
 

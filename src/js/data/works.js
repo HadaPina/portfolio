@@ -15,8 +15,8 @@ export const works = [
   {
     id: 'autosock',
     no: '01',
-    title: '布製タイヤチェーン「AutoSock」',
-    shortTitle: 'AutoSock 特設サイト・適合検索',
+    title: '布製タイヤチェーン|「AutoSock」',
+    shortTitle: 'AutoSock 特設サイト・|適合検索',
     summary: 'じっくり読まれて問い合わせの少ないページを実現',
     headline:
       '商品の魅力と仕様をきちんと伝えることにこだわり、じっくり読まれ、問い合わせの少ないページを実現しました。',
@@ -76,8 +76,8 @@ export const works = [
   {
     id: 'clevers',
     no: '02',
-    title: 'カーコーティング専門店「クレヴァーズ名古屋」',
-    shortTitle: 'クレヴァーズ名古屋 ECサイト',
+    title: 'カーコーティング専門店|「クレヴァーズ名古屋」',
+    shortTitle: 'クレヴァーズ|名古屋 ECサイト',
     summary: '誰でも更新できるECサイトで公開翌月から受注を獲得',
     headline:
       '公開後に運用する別チームのため、HTMLの知識がなくても更新できるECサイトを立ち上げ、公開翌月から受注につなげました。',
@@ -121,7 +121,7 @@ export const works = [
   {
     id: 'column',
     no: '03',
-    title: 'コラム・コンテンツ企画（季節特集）',
+    title: 'コラム・|コンテンツ企画|（季節特集）',
     shortTitle: '季節特集コラム',
     summary: '専門店ならではのコラムで商品ページへお客様を案内',
     headline: 'カー用品店ならではの解説コラムで、広告に頼らず商品ページへお客様を案内しました。',
@@ -168,8 +168,8 @@ export const works = [
   {
     id: 'data-system',
     no: '04',
-    title: 'データの一括管理＆更新システム',
-    shortTitle: 'データ一括管理＆更新システム',
+    title: 'データの一括管理|＆更新システム',
+    shortTitle: 'データ一括管理|＆更新システム',
     summary: 'データ1箇所の更新で全モールに一括反映',
     headline: 'モールごとの手作業での修正を、データ1箇所の更新で一括反映できるようにしました。',
     tags: ['GAS', 'VBA', 'データベース設計', '業務効率化', 'スプレッドシート'],
@@ -231,8 +231,8 @@ export const works = [
   {
     id: 'rakuten-header',
     no: '05',
-    title: '楽天市場店 PC用ヘッダー/フッター改修',
-    shortTitle: '楽天市場店 ヘッダー/フッター改修',
+    title: '楽天市場店 PC用ヘッダー/|フッター改修',
+    shortTitle: '楽天市場店 ヘッダー/|フッター改修',
     summary: '情報を増やしながらコンパクトにまとめたデザイン',
     headline: '仕様変更をきっかけに、情報は増やしながら、見た目はコンパクトにまとめました。',
     tags: ['UI設計', '情報設計', 'HTML/CSS', 'モール仕様対応'],
