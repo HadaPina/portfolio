@@ -311,11 +311,12 @@
     }
 
     li {
-      padding-inline-start: 1.4em;
-      text-indent: -1.4em;
+      position: relative;
+      padding-inline-start: 1.2em;
 
       &::before {
-        margin-inline-end: 0.4em;
+        position: absolute;
+        inset-inline-start: 0;
         color: var(--color-sky-400);
         content: '・';
       }
@@ -500,11 +501,11 @@
       border-color var(--duration),
       background-color var(--duration);
 
-    @include hover {
     @include mq(md) {
       padding: var(--space-md) var(--space-lg);
     }
 
+    @include hover {
       background-color: var(--color-sky-50);
       border-color: var(--color-sky-400);
     }
@@ -534,7 +535,7 @@
     font-size: var(--fs-xs);
     font-weight: 500;
     color: var(--color-text-sub);
-  }
-}
     word-break: keep-all;
     overflow-wrap: anywhere;
+  }
+}
