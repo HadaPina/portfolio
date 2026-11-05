@@ -5,7 +5,7 @@
 // 構成：成果（ひと言＋数字）→ この成果に至るまで（背景〜+α）→ 制作ページ → 前後の実績
 // =========================================================
 .c-modal {
-  inline-size: min(100% - 16px, 1080px);
+  inline-size: min(100% - 24px, 1080px);
   max-block-size: calc(100dvh - 16px);
   padding-block-end: var(--space-sm); // スクロールバーが下の角丸にかからないよう余白を確保
   margin: auto;
@@ -117,10 +117,12 @@
   &__content {
     position: relative;
     display: grid;
-    flex: 1;
+
+    // flex: 1（basis 0%）だと Safari で本文の高さが 0 扱いになりモーダルが潰れるため、basis は auto にする
+    flex: 1 1 auto;
     gap: var(--space-2xl);
     min-block-size: 0;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--gutter);
     overflow: hidden auto;
     overscroll-behavior: contain;
     outline: none;
@@ -175,9 +177,13 @@
     letter-spacing: 0.15em;
   }
 
+  // 改行位置はデータ側の <wbr> で指定（.p-works__title と同じ）
   &__title {
     font-family: var(--font-round);
     font-size: var(--fs-2xl);
+    word-break: keep-all;
+    text-wrap: wrap;
+    overflow-wrap: anywhere;
   }
 
   &__tags {
@@ -205,7 +211,7 @@
   &__headline {
     margin-block: var(--space-xs) var(--space-xl);
     font-family: var(--font-round);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-lg);
     font-weight: 700;
     line-height: 1.7;
     word-break: auto-phrase;
@@ -305,11 +311,12 @@
     }
 
     li {
-      padding-inline-start: 1.4em;
-      text-indent: -1.4em;
+      position: relative;
+      padding-inline-start: 1.2em;
 
       &::before {
-        margin-inline-end: 0.4em;
+        position: absolute;
+        inset-inline-start: 0;
         color: var(--color-sky-400);
         content: '・';
       }
@@ -485,7 +492,7 @@
   &__pager-btn {
     display: grid;
     gap: 2px;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-md);
     text-align: start;
     background-color: var(--color-surface);
     border: 1px solid var(--color-sky-100);
@@ -493,6 +500,10 @@
     transition:
       border-color var(--duration),
       background-color var(--duration);
+
+    @include mq(md) {
+      padding: var(--space-md) var(--space-lg);
+    }
 
     @include hover {
       background-color: var(--color-sky-50);
@@ -524,5 +535,7 @@
     font-size: var(--fs-xs);
     font-weight: 500;
     color: var(--color-text-sub);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 }

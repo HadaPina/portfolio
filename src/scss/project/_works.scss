@@ -14,15 +14,15 @@
     display: grid;
     gap: var(--space-md);
 
+    .c-heading {
+      margin-block-end: 0;
+    }
+
     @include mq(lg) {
       grid-template-columns: auto 1fr;
       gap: var(--space-2xl);
       align-items: end;
       margin-block-end: var(--space-2xl);
-
-      .c-heading {
-        margin-block-end: 0;
-      }
     }
   }
 
@@ -209,10 +209,14 @@
     letter-spacing: 0.12em;
   }
 
+  // 改行位置はデータ側の <wbr> で指定し、ブラウザによらず同じ位置で折り返す（auto-phrase は Safari 非対応）
   &__title {
     font-family: var(--font-round);
     font-size: var(--fs-xl);
     line-height: 1.5;
+    word-break: keep-all;
+    text-wrap: wrap;
+    overflow-wrap: anywhere;
   }
 
   // 何をして、どうなったかを伝える一文（蛍光ペン風のマーカーで強調）
@@ -279,6 +283,31 @@
     flex: 1 1 auto;
     flex-wrap: wrap;
     gap: var(--space-xs);
+  }
+
+  // リンクが4つ以上ある実績は縦に長くなるため、2列にまとめる（ラベルは「名称／種類」の2行）
+  &__links--grid {
+    display: grid;
+    flex-basis: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .c-button {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      padding: 0.6em 0.5em;
+      line-height: 1.5;
+      text-align: center;
+      letter-spacing: 0.02em;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .c-button__icon {
+      display: inline-block;
+      margin-inline-start: 0.25em;
+      vertical-align: -0.2em;
+    }
   }
 
   &__more {

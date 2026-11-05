@@ -1,6 +1,6 @@
 .p-contact {
   padding-block: var(--space-section);
-  padding-inline: 16px;
+  padding-inline: var(--gutter);
   text-align: center;
   background:
     radial-gradient(circle at 10% 90%, var(--color-lemon-200), transparent 40%),
@@ -14,12 +14,16 @@
     margin-inline: auto;
   }
 
+  // 行末の句読点の右側の空きで左に寄って見えるため、見た目の中央に合わせて右へ補正
   &__title {
     font-family: var(--font-round);
     font-size: var(--fs-2xl);
+    translate: 0.25em 0;
   }
 
+  // justify-items: center だと文字幅ぴったりに縮み、iPhone で「お話／しする」のように割れるため幅を確保する
   &__text {
+    inline-size: 100%;
     color: var(--color-text-sub);
   }
 

@@ -26,6 +26,7 @@ function initLightbox(list) {
   const lightbox = document.querySelector('.js-lightbox');
   const img = document.querySelector('.js-lightbox-img');
   const caption = document.querySelector('.js-lightbox-caption');
+  const figure = document.querySelector('.js-lightbox-figure');
   const closeBtn = document.querySelector('.js-lightbox-close');
   if (!lightbox || !img) return;
 
@@ -40,6 +41,8 @@ function initLightbox(list) {
     img.alt = `${captionOf(banner)}のバナー`;
     if (caption) caption.textContent = captionOf(banner);
     lightbox.showModal();
+    // 閉じるボタンに枠が出ないよう画像側にフォーカス（Tab キーでは閉じるボタンへ移動できる）
+    figure?.focus({ preventScroll: true });
   });
 
   closeBtn?.addEventListener('click', () => lightbox.close());
