@@ -491,7 +491,7 @@
   &__pager-btn {
     display: grid;
     gap: 2px;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-md);
     text-align: start;
     background-color: var(--color-surface);
     border: 1px solid var(--color-sky-100);
@@ -501,6 +501,10 @@
       background-color var(--duration);
 
     @include hover {
+    @include mq(md) {
+      padding: var(--space-md) var(--space-lg);
+    }
+
       background-color: var(--color-sky-50);
       border-color: var(--color-sky-400);
     }
