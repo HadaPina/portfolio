@@ -21,7 +21,9 @@
 
   &__text {
     color: var(--color-text-sub);
+  // justify-items: center だと文字幅ぴったりに縮み、iPhone で「お話／しする」のように割れるため幅を確保する
   }
+    inline-size: 100%;
 
   &__actions {
     display: flex;
