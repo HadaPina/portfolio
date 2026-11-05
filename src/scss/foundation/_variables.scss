@@ -59,6 +59,7 @@
   --space-xl: 2rem;
   --space-2xl: clamp(2.5rem, 2rem + 2vw, 3.5rem);
   --space-section: clamp(5rem, 3.5rem + 6vw, 9rem);
+  --gutter: 20px; // スマホ幅の左右余白
 
   // Others
   --radius-sm: 8px;

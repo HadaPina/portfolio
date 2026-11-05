@@ -1,7 +1,7 @@
 @use '../foundation/mixin' as *;
 
 .l-container {
-  inline-size: min(100% - 32px, var(--content-w));
+  inline-size: min(100% - var(--gutter) * 2, var(--content-w));
   margin-inline: auto;
 
   @include mq(md) {

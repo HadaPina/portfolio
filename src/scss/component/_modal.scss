@@ -5,7 +5,7 @@
 // 構成：成果（ひと言＋数字）→ この成果に至るまで（背景〜+α）→ 制作ページ → 前後の実績
 // =========================================================
 .c-modal {
-  inline-size: min(100% - 16px, 1080px);
+  inline-size: min(100% - 24px, 1080px);
   max-block-size: calc(100dvh - 16px);
   padding-block-end: var(--space-sm); // スクロールバーが下の角丸にかからないよう余白を確保
   margin: auto;
@@ -122,7 +122,7 @@
     flex: 1 1 auto;
     gap: var(--space-2xl);
     min-block-size: 0;
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-lg) var(--gutter);
     overflow: hidden auto;
     overscroll-behavior: contain;
     outline: none;

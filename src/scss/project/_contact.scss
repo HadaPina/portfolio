@@ -1,6 +1,6 @@
 .p-contact {
   padding-block: var(--space-section);
-  padding-inline: 16px;
+  padding-inline: var(--gutter);
   text-align: center;
   background:
     radial-gradient(circle at 10% 90%, var(--color-lemon-200), transparent 40%),
